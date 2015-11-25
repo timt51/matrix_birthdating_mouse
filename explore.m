@@ -6,7 +6,7 @@ load('time_velocity_data.mat');
 
 %Remove first 5 empty cells, trial 1 ("active" mouse) ends on 7500
 velocity = velocity(6:7500);
-time_intervals = time_intervals(6:7500);
+time_intervals = time_intervals(6:7500);tt
 
 %change time intervals to start times, could use optimization?
 start_times = zeros(length(time_intervals),1);
