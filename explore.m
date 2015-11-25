@@ -22,7 +22,7 @@ start_times = start_times(1:n:length(start_times)); start_times = start_times(2:
 
 %Clean velocity data by thresholding
 %Mean: 100.7284, Standard Deviation: 96.9569
-threshold = 100;
+threshold = 300;
 v = velocity(velocity < threshold);
 
 %Corresponding time intervals
@@ -44,10 +44,10 @@ end
 
 
 %Make normalized bar charts of data
-[counts_s, centers_s] = hist(stimulated_vs, linspace(5, 95, 10));
-[counts_ns, centers_ns] = hist(not_stimulated_vs, linspace(5, 95, 10));
-figure(1); bar(centers_s, counts_s/sum(counts_s)); xlim([0 100]); ylim([0 .35]); title('Stimulated Velocities (Threshold 100cm/s)'); xlabel('Velocity(cm/s)'); ylabel('Normalized Frequency (% of total)');
-figure(2); bar(centers_ns, counts_ns/sum(counts_ns)); xlim([0 100]); ylim([0 .35]); title('Not Stimulated Veclocities (Threshold 100cm/s)'); xlabel('Velocity(cm/s)'); ylabel('Normalized Frequency (% of total)');
+[counts_s, centers_s] = hist(stimulated_vs, linspace(15, 285, 19));
+[counts_ns, centers_ns] = hist(not_stimulated_vs, linspace(15, 285, 19));
+figure(1); bar(centers_s, counts_s/sum(counts_s)); xlim([0 300]); ylim([0 .25]); title('Stimulated Velocities (Threshold 100cm/s)'); xlabel('Velocity(cm/s)'); ylabel('Normalized Frequency (% of total)');
+figure(2); bar(centers_ns, counts_ns/sum(counts_ns)); xlim([0 300]); ylim([0 .25]); title('Not Stimulated Veclocities (Threshold 100cm/s)'); xlabel('Velocity(cm/s)'); ylabel('Normalized Frequency (% of total)');
 
 %display means and stds
 ys = [mean(stimulated_vs), mean(not_stimulated_vs)];
